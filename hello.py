@@ -1,6 +1,6 @@
-import dependencies
 from flask import Flask
 
+import dependencies
 
 app = Flask(__name__)
 
