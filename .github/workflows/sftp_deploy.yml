@@ -14,3 +14,5 @@ jobs:
         server: ssh.strato.de
         username: ${{ secrets.sftp_username }}
         password: ${{ secrets.sftp_password }}
+        protocol: ftps
+        
