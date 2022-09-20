@@ -1,5 +1,5 @@
 on: push
-  branches: [ main ]
+
   
 name: 🚀 Deploy website on push
 
@@ -18,5 +18,5 @@ jobs:
         username: ${{ secrets.sftp_username }}
         password: ${{ secrets.sftp_password }}
         protocol: ftps
-        port: 21
+        port: 22
         server-dir: /cgi-bin
