@@ -19,4 +19,4 @@ jobs:
         password: ${{ secrets.sftp_password }}
         protocol: ftps
         port: 22
-        server-dir: /cgi-bin
+        server-dir: /cgi-bin/
