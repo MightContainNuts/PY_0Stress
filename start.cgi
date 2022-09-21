@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 try:
     from wsgiref.handlers import CGIHandler
-    from hello import app
+    from main import app
 
     CGIHandler().run(app)
 except Exception as err:
