@@ -1,16 +1,14 @@
 # pylint: disable=wrong-import-order
 import dependencies
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask
+from __init__ import db
 
+main = Blueprint('main', __name__)
 
-app = Flask(__name__)
+@main.route('/')
+def index():
+    return 'Index'
 
-
-@app.route("/")
-
-def home():
-    return ("hello world")
-
-
-# app.run(host="0.0.0.0", port=81)
- 
+@main.route('/profile')
+def profile():
+    return 'Profile'
