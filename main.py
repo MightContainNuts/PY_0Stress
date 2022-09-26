@@ -1,6 +1,6 @@
 # pylint: disable=wrong-import-order
 import dependencies
-from flask import Flask
+from flask import Flask, Blueprint
 from __init__ import db
 
 main = Blueprint('main', __name__)
