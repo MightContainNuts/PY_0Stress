@@ -1,4 +1,5 @@
-import dependenciesfrom flask import Blueprint
+import dependencies
+from flask import Blueprint
 from __init__ import db
 
 auth = Blueprint('auth', __name__)
