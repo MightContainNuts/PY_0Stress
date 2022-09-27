@@ -3,7 +3,7 @@ from flask import Flask, Blueprint
 #from flask_sqlalchemy import SQLAlchemy
 
 # init SQLAlchemy so we can use it later in our models
-db = SQLAlchemy()
+#db = SQLAlchemy()
 
 app = Flask(__name__)
 
