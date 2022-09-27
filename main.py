@@ -12,3 +12,7 @@ def index():
 @main.route('/profile')
 def profile():
     return 'Profile'
+
+@route('/aboutme')
+def aboutme():
+    return 'Aboutme'
