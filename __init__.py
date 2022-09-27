@@ -20,7 +20,7 @@ try:
     print ('success! - imported auth as blueprint')
 
 except:
-    pass
+    print ('nope - that didna work')
 
 
 # blueprint for non-auth parts of app
