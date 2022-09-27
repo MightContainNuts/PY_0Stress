@@ -82,7 +82,7 @@ def edit(id):
     return render_template('edit.html', post=post)
 
 
-#@app.route('/2')
-#def post(2):
-#    post = get_post(2)
-#    return render_template('post.html', post=post)
+@app.route('/2')
+def post2(2):
+    post = get_post(2)
+    return render_template('post.html', post=post)
