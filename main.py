@@ -3,16 +3,12 @@ import dependencies
 from flask import Blueprint
 #from . import db
 
-try:
-    main = Blueprint('main', __name__)
-    print ('success - main-py import blueprint is working')
+main = Blueprint('main', __name__)
 
-except:
-    print ('oops - main-py is bust')
 
 @main.route('/')
 def index():
-    return 'Index2'
+    return 'Index'
 
 @main.route('/profile')
 def profile():
