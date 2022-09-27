@@ -13,6 +13,6 @@ def index():
 def profile():
     return 'Profile'
 
-@app.route('/aboutme')
+@main.route('/aboutme')
 def aboutme():
     return 'Aboutme'
