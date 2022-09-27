@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 
 # blueprint for non-auth parts of app
-app.register_blueprint(main_blueprint)
+#
 
 
 main = Blueprint('main', __name__)
@@ -33,7 +33,7 @@ def aboutme():
     return 'Aboutme'
 
 # blueprint for auth parts of app
-app.register_blueprint(auth_blueprint)
+
 auth = Blueprint('auth', __name__)
 
 @auth.route('/login')
