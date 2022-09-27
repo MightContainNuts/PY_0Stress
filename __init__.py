@@ -7,6 +7,6 @@ app = Flask(__name__)
 def base():
     return 'welcome to the base'
 
-@app.route('/index')
+@app.route('/aboutme')
 def index():
     return render_template('aboutme.html')
