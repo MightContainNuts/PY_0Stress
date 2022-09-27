@@ -35,7 +35,7 @@ def profile():
 def aboutme():
     return 'Aboutme'
 
-uth = Blueprint('auth', __name__)
+auth = Blueprint('auth', __name__)
 
 @auth.route('/login')
 @auth.route('/login')
