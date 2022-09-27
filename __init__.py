@@ -19,3 +19,33 @@ app.register_blueprint(auth_blueprint)
 # blueprint for non-auth parts of app
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
+
+
+main = Blueprint('main', __name__)
+
+@main.route('/')
+def index():
+    return 'Index2'
+
+@main.route('/profile')
+def profile():
+    return 'Profile'
+
+@main.route('/aboutme')
+def aboutme():
+    return 'Aboutme'
+
+uth = Blueprint('auth', __name__)
+
+@auth.route('/login')
+@auth.route('/login')
+def login():
+    return 'Login'
+
+@auth.route('/signup')
+def signup():
+    return 'Signup'
+
+@auth.route('/logout')
+def logout():
+    return 'Logout'
