@@ -2,9 +2,14 @@ import dependencies
 from flask import Blueprint
 #from  import db
 
-auth = Blueprint('auth', __name__)
+try:
+    auth = Blueprint('auth', __name__)
+    print ('auth bluprint')
 
-@auth.route('/login')
+except:
+    print ('nah . auth bluprint')
+
+
 @auth.route('/login')
 def login():
     return 'Login'
