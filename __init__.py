@@ -10,3 +10,7 @@ def base():
 @app.route('/aboutme')
 def index():
     return render_template('aboutme.html')
+
+@app.route('/index')
+def index():
+    return render_template('index.html')
