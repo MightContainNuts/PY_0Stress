@@ -7,7 +7,7 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return 'Index'
+    return 'Index2'
 
 @main.route('/profile')
 def profile():
