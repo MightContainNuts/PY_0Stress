@@ -1,5 +1,5 @@
 import dependencies
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -9,4 +9,4 @@ def base():
 
 @app.route('/index')
 def index():
-    return 'welcome to the index'
+    return render_template(templates/index.html)
