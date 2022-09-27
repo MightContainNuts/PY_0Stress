@@ -20,12 +20,15 @@ try:
     print ('success! - imported auth as blueprint')
 
 except:
-    print ('nope - that didna work')
+    print ('nope -auth-  that didna work')
 
 
 # blueprint for non-auth parts of app
 
+try: 
+    from main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+    print ('success! - imported main as blueprint')
 
-from main import main as main_blueprint
-app.register_blueprint(main_blueprint)
-
+except:
+    print ('nope - -main- that didna work')

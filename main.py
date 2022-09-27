@@ -3,7 +3,12 @@ import dependencies
 from flask import Blueprint
 #from . import db
 
-main = Blueprint('main', __name__)
+try:
+    main = Blueprint('main', __name__)
+    print ('success - main-py import blueprint is working')
+
+except:
+    print ('oops - main-py is bust')
 
 @main.route('/')
 def index():
