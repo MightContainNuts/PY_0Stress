@@ -8,5 +8,5 @@ def base():
     return 'welcome to the index'
 
 app.route('/index')
-def base():
+def index():
     return 'welcome to the index'
