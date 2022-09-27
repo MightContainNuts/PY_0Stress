@@ -8,7 +8,7 @@ def base():
     return 'welcome to the base'
 
 @app.route('/aboutme')
-def index():
+def aboutme():
     return render_template('aboutme.html')
 
 @app.route('/index')
