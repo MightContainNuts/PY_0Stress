@@ -3,10 +3,12 @@ import dependencies, sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 
+
 def get_db_connection():
     conn = sqlite3.connect('database.db')
     conn.row_factory = sqlite3.Row
     return conn
+
 
 def get_post(post_id):
     conn = get_db_connection()
@@ -15,21 +17,14 @@ def get_post(post_id):
     conn.close()
     if post is None:
         abort(404)
-    return pos
+    return post
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'MightContainNuts@0stress'
+app.config['SECRET_KEY'] = '24783481@mightcontainnuts'
+
 
 @app.route('/')
-def base():
-    return 'welcome to the base'
-
-@app.route('/aboutme')
-def aboutme():
-    return render_template('aboutme.html')
-
-@app.route('/index')
 def index():
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM posts').fetchall()
@@ -40,8 +35,8 @@ def index():
 @app.route('/<int:post_id>')
 def post(post_id):
     post = get_post(post_id)
-    return ('post_id')
-    #return render_template('post.html', post=post) #post
+    return render_template('post.html', post=post)
+
 
 @app.route('/create', methods=('GET', 'POST'))
 def create():
@@ -58,8 +53,9 @@ def create():
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
-    
+
     return render_template('create.html')
+
 
 @app.route('/<int:id>/edit', methods=('GET', 'POST'))
 def edit(id):
@@ -81,3 +77,14 @@ def edit(id):
             return redirect(url_for('index'))
 
     return render_template('edit.html', post=post)
+
+
+@app.route('/<int:id>/delete', methods=('POST',))
+def delete(id):
+    post = get_post(id)
+    conn = get_db_connection()
+    conn.execute('DELETE FROM posts WHERE id = ?', (id,))
+    conn.commit()
+    conn.close()
+    flash('"{}" was successfully deleted!'.format(post['title']))
+    return redirect(url_for('index'))
