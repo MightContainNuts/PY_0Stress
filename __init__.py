@@ -37,8 +37,8 @@ def index():
     return render_template('index.html', posts=posts)
 
 
-@app.route('/<int:post_id>')
-def post(post_id):
+@app.route('/<int:id>')
+def post(id):
     post = get_post(post_id)
     return render_template('post.html', post=post)
 
@@ -80,9 +80,3 @@ def edit(id):
             return redirect(url_for('index'))
 
     return render_template('edit.html', post=post)
-
-
-@app.route('/2')
-def post2():
-    post = get_post(2)
-    return render_template('post.html', post=post)
