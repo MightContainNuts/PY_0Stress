@@ -21,7 +21,7 @@ def get_post(post_id):
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '24783481@mightcontainnuts'
+app.config['SECRET_KEY'] = 'MightContainNuts@0stress'
 
 
 @app.route('/')
