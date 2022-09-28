@@ -40,7 +40,7 @@ def index():
 @app.route('/<int:post_id>')
 def post(post_id):
     post = get_post(post_id)
-    return render_template('post.html', post=post)
+    return render_template('post.html', post=1) #post
 
 @app.route('/create', methods=('GET', 'POST'))
 def create():
