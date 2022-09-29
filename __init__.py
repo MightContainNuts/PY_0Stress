@@ -37,22 +37,7 @@ app.register_blueprint(auth_blueprint)
 # blueprint for non-auth parts of app
 
 main = Blueprint('main', __name__)
-#app.register_blueprint(main_blueprint)
-
-
-@main.route('/')
-def index():
-    return 'Index'
-
-@main.route('/profile')
-def profile():
-    return 'Profile'
-
-@main.route('/aboutme')
-def aboutme():
-    return 'aboutme'
-
-
+app.register_blueprint(main_blueprint)
 
 
 
