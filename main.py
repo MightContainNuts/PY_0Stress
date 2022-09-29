@@ -16,4 +16,4 @@ def profile():
 
 @main.route('/aboutme')
 def aboutme():
-    return 'Aboutme'
+    return render_template('aboutme.html')
