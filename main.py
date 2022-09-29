@@ -17,3 +17,5 @@ def profile():
 @main.route('/aboutme')
 def aboutme():
     return render_template('aboutme.html')
+
+    
