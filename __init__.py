@@ -26,7 +26,6 @@ def get_post(post_id):
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MightContainNuts@0stress'
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 db.init_app(app)
 
@@ -39,7 +38,7 @@ app.register_blueprint(auth_blueprint)
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 
-@main.route('/')
+""" @main.route('/')
 def index():
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM posts').fetchall()
@@ -106,4 +105,4 @@ def delete(id):
 
 @main.route('/aboutme')
 def aboutme():
-    return render_template('aboutme.html')
+    return render_template('aboutme.html') """
