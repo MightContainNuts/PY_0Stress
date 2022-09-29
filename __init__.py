@@ -3,6 +3,7 @@ import dependencies, sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect, Blueprint
 from werkzeug.exceptions import abort
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager 
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
