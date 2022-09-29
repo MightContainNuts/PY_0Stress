@@ -3,6 +3,9 @@ import dependencies, sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect, Blueprint
 from werkzeug.exceptions import abort
 
+# init SQLAlchemy so we can use it later in our models
+db = SQLAlchemy()
+
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
