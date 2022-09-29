@@ -1,6 +1,6 @@
 import dependencies
 from flask import Blueprint
-#from  import db
+from  __index__ import db
 
 auth = Blueprint('auth', __name__)
 

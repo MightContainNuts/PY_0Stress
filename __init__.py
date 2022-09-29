@@ -24,16 +24,6 @@ def get_post(post_id):
     return post
 
 
-#blueprints for auth and non auth routes
-#blueprint for auth routes in our app
-auth = Blueprint('auth', __name__)
-#app.register_blueprint(auth_blueprint)
-
-# blueprint for non-auth parts of app
-main = Blueprint('main', __name__)
-#app.register_blueprint(main_blueprint)
-
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MightContainNuts@0stress'
 
@@ -41,13 +31,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 db.init_app(app)
 
 
-#auth = Blueprint('auth', __name__)
+# blueprint for auth routes in our app
+from auth import auth as auth_blueprint
 app.register_blueprint(auth_blueprint)
 
-#main = Blueprint('main', __name__)
+# blueprint for non-auth parts of app
+from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
-
-
 
 @main.route('/')
 def index():
