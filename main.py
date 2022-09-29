@@ -3,8 +3,9 @@ import dependencies
 from flask import Blueprint, render_template
 from __init__ import db
 
-main = Blueprint('main', __name__)
 
+
+main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
