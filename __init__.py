@@ -37,7 +37,7 @@ app.register_blueprint(auth_blueprint)
 # blueprint for non-auth parts of app
 
 main = Blueprint('main', __name__)
-app.register_blueprint(main_blueprint)
+#app.register_blueprint(main_blueprint)
 
 
 @main.route('/')
