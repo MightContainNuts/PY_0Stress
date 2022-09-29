@@ -1,6 +1,6 @@
 import dependencies, sqlite3
 
-from flask import Flask, render_template, request, url_for, flash, redirect
+from flask import Flask, render_template, request, url_for, flash, redirect, Blueprint
 from werkzeug.exceptions import abort
 
 
@@ -22,18 +22,19 @@ def get_post(post_id):
 
 #blueprints for auth and non auth routes
 # blueprint for auth routes in our app
-#from .auth import auth as auth_blueprint
-#app.register_blueprint(auth_blueprint)
+auth = Blueprint('auth', __name__)
+app.register_blueprint(auth_blueprint)
 
 # blueprint for non-auth parts of app
-#from .main import main as main_blueprint
-#app.register_blueprint(main_blueprint)
+main = Blueprint('main', __name__)
+app.register_blueprint(main_blueprint)
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MightContainNuts@0stress'
 
 
-@app.route('/')
+@main.route('/')
 def index():
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM posts').fetchall()
@@ -41,13 +42,13 @@ def index():
     return render_template('index.html', posts=posts)
 
 
-@app.route('/<int:post_id>')
+@auth.route('/<int:post_id>')
 def post(post_id):
     post = get_post(post_id)
     return render_template('post.html', post=post)
 
 
-@app.route('/create', methods=('GET', 'POST'))
+@auth.route('/create', methods=('GET', 'POST'))
 def create():
     if request.method == 'POST':
         title = request.form['title']
@@ -66,7 +67,7 @@ def create():
     return render_template('create.html')
 
 
-@app.route('/<int:id>/edit', methods=('GET', 'POST'))
+@auth.route('/<int:id>/edit', methods=('GET', 'POST'))
 def edit(id):
     post = get_post(id)
 
@@ -88,7 +89,7 @@ def edit(id):
     return render_template('edit.html', post=post)
 
 
-@app.route('/<int:id>/delete', methods=('POST',))
+@auth.route('/<int:id>/delete', methods=('POST',))
 def delete(id):
     post = get_post(id)
     conn = get_db_connection()
@@ -98,6 +99,6 @@ def delete(id):
     flash('"{}" was successfully deleted!'.format(post['title']))
     return redirect(url_for('index'))
 
-@app.route('/aboutme')
+@main.route('/aboutme')
 def aboutme():
     return render_template('aboutme.html')
