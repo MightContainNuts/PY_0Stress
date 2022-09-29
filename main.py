@@ -1,21 +1,16 @@
 # pylint: disable=wrong-import-order
 import dependencies
 from flask import Blueprint, render_template
-from __init__ import db
-
-
+from flask_login import login_required, current_user
 
 main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return 'Index'
+    return render_template('index.html')
 
 @main.route('/profile')
+@login_required
 def profile():
-    return 'Profile'
-
-@main.route('/aboutme')
-def aboutme():
-    return 'aboutme'
+    return render_template('profile.html', name=current_user.name)
 
