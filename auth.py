@@ -15,3 +15,11 @@ def signup():
 @auth.route('/logout')
 def logout():
     return 'Logout'
+
+@auth.route('/create')
+def create():
+    return 'create'
+
+@auth.route('/edit')
+def edit():
+    return 'edit'
