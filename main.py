@@ -17,3 +17,7 @@ def profile():
 @main.route('/aboutme')
 def aboutme():
     return 'Aboutme'
+
+@main.route('/clog')
+def clog():
+    return 'Concept2 log'
