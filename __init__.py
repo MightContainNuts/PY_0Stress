@@ -101,3 +101,8 @@ def delete(id):
 @app.route('/aboutme')
 def aboutme():
     return render_template('aboutme.html')
+
+
+@app.route('/clog')
+def aboutme():
+    return render_template('clog.html')
