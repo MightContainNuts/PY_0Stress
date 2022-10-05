@@ -104,5 +104,5 @@ def aboutme():
 
 
 @app.route('/clog')
-def aboutme():
+def clog():
     return render_template('clog.html')
